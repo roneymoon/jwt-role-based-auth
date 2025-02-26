@@ -129,7 +129,7 @@ const authMiddleware = (req, res, next) => {
 module.exports = authMiddleware;
 ```
 
-###### 🔥 Importance of This Middleware
+##### 🔥 Importance of This Middleware
 
 ✅ **Protects private routes** by requiring valid authentication.  
 
