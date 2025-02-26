@@ -198,7 +198,7 @@ router.get("/admin-dashboard", authMiddleware, roleMiddleware(['admin']), (req, 
 
 This file defines **user authentication routes** for **registration and login** using Express.js. It integrates **bcrypt.js** for password hashing and **jsonwebtoken (JWT)** for user authentication.
 
-###### Registering User `post /register` What It Does ?  
+##### Registering User `post /register` What It Does ?  
 
 ✅ Extracts `username`, `email`, `password`, and `role` from the request body.  
 ✅ **Hashes the password** using `bcrypt.hash(password, 10)`.  
@@ -206,7 +206,7 @@ This file defines **user authentication routes** for **registration and login** 
 ✅ Sends a **201 (Created)** response on success.  
 ❌ **Catches errors** and returns a **500 (Server Error)** if registration fails.
 
-###### Logging-In User `post /login` What it Does ?
+##### Logging-In User `post /login` What it Does ?
 
 ✅ Extracts `email` and `password` from the request.  
 ✅ **Finds the user** in the MongoDB database using `User.findOne({ email })`.  
@@ -292,7 +292,7 @@ router.get('/dashboard', authMiddleware, roleMiddleware(['admin']), (req, res) =
 module.exports = router;
 ```
 
-###### Dashboard Route `GET /dashboard`
+##### Dashboard Route `GET /dashboard`
 
 ✅ **First, `authMiddleware` checks if the user is logged in** using a valid **JWT token**.  
 ✅ **Then, `roleMiddleware(['admin'])` ensures only admin users** can access this route.  
@@ -319,7 +319,7 @@ router.get('/profile', authMiddleware, (req, res) => {
 module.exports = router;
 ```
 
-###### Profile Route `GET /profile`
+##### Profile Route `GET /profile`
 
 ✅ **First, `authMiddleware` checks if the user is authenticated** using a **valid JWT token**.  
 ✅ If authenticated, the route responds with **a success message and user details**.
@@ -475,7 +475,7 @@ Install Rate-Limit Package
 npm install express-rate-limit
 ```
 
-###### Create a Rate-Limiting Middleware
+##### Create a Rate-Limiting Middleware
 
 Create a new file **`middleware/rateLimiter.js`**
 
@@ -492,7 +492,7 @@ const apiLimiter = rateLimit({
 module.exports = apiLimiter;
 ```
 
-###### 📌 What Does `headers: true` Do?
+##### 📌 What Does `headers: true` Do?
 
 When enabled, it includes **rate limit headers** in the HTTP response, such as:
 
@@ -503,7 +503,7 @@ When enabled, it includes **rate limit headers** in the HTTP response, such as:
 3️) **`X-RateLimit-Reset`** → Time (in seconds) until the limit resets.
 
 ---
-###### Applying Rate Limiting to Routes
+##### Applying Rate Limiting to Routes
 
 modifying the server.js
 
